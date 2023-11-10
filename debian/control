@@ -1,11 +1,11 @@
 Source: droidian-meta
-Maintainer: Eugenio Paolantonio (g7) <eugenio@droidian.org>
+Maintainer: Erik Inkinen <erik.inkinen@erikinkinen.fi>
 Section: metapackages
 Priority: optional
 Build-Depends: debhelper (>= 10)
 Standards-Version: 4.5.0.3
-Vcs-Browser: https://github.com/droidian/droidian-meta
-Vcs-Git: https://github.com/droidian/droidian-meta.git
+Vcs-Browser: https://github.com/cutie-shell/droidian-meta
+Vcs-Git: https://github.com/cutie-shell/droidian-meta.git
 
 Package: droidian-base
 Architecture: all
@@ -72,12 +72,15 @@ Description: Droidian metapackages - base
  This metapackage depends on a bunch of essential
  packages for the Droidian installation.
 
-Package: droidian-phosh-minimal
+Package: droidian-cutie-minimal
 Architecture: all
 Depends: ${misc:Depends},
          droidian-base (= ${binary:Version}),
-         droidian-phosh-default-settings,
-         chatty,
+         cutie-shell,
+         cutie-atmospheres-default,
+         cutie-keyboard-layouts,
+         cutie-keyboard-style,
+         cutie-settings,
          at-spi2-core,
          flatpak,
          fonts-noto,
@@ -86,79 +89,50 @@ Depends: ${misc:Depends},
          fonts-noto-mono,
          fonts-noto-ui-core,
          wayland-protocols,
-         xdg-desktop-portal-gtk,
-         xdg-desktop-portal-gnome,
-         libcanberra-gtk3-module,
          plymouth,
          plymouth-theme-droidian,
-         phosh-core,
-         gnome-accessibility-themes,
-         gnome-initial-setup,
-         gnome-themes-extra-data,
          lm-sensors,
          droidian-quirks-wayland,
-         droidian-quirks-gnome,
-         droidian-quirks-initial-setup,
-         droidian-quirks-keyring,
-         droidian-quirks-pwquality,
+Conflicts: droidian-phosh-minimal
 Breaks: droidian-minimal (<< 22+git20211206000000)
 Replaces: droidian-minimal (<< 22+git20211206000000)
-Description: Droidian metapackages - minimal phosh environment
+Description: Droidian metapackages - minimal Cutie environment
  This metapackage depends on a bunch of essential
  packages for the droidian installation with
- the phosh mobile shell.
+ the Cutie Shell.
 
-Package: droidian-phosh-phone
+Package: droidian-cutie-phone
 Architecture: all
 Depends: ${misc:Depends},
-         droidian-phosh-minimal (= ${binary:Version}),
-         phosh-phone,
+         droidian-cutie-minimal (= ${binary:Version}),
+         cutie-phone,
+         cutie-messaging,
          mobile-broadband-provider-info,
          device-chassis-handset,
+Conflicts: droidian-phosh-phone
 Breaks: droidian-phone (<< 22+git20211206000000)
 Replaces: droidian-phone (<< 22+git20211206000000)
 Description: Droidian metapackages - addons for mobile phones
  This metapackage depends on a bunch of packages that
  make phone-related stuff work.
 
-Package: droidian-phosh-full
+Package: droidian-cutie-full
 Architecture: all
 Depends: ${misc:Depends},
-         droidian-phosh-minimal (= ${binary:Version}),
-         phosh-full,
-         phosh-tour,
-         evince,
-         file-roller,
-         gnome-text-editor,
-         gnome-calculator,
-         gnome-calendar,
-         gnome-maps,
-         gnome-software,
-         gnome-software-plugin-flatpak,
-         gnome-usage,
-         gnome-weather,
-         phosh-plugins,
-         phosh-mobile-settings,
-         portfolio-filemanager,
-         pinhole,
-         epiphany-browser,
-         eog,
-         gthd,
+         droidian-cutie-minimal (= ${binary:Version}),
+         cutie-browser,
+         cutie-music,
          qtwayland5,
-         firefox-esr,
-         firefox-esr-mobile-config,
-         droidian-quirks-firefox,
-         celluloid,
          droidian-quirks-totem-dummy,
-         g4music,
          droidian-quirks-lollypop-dummy,
          getcutout,
          nfcd-tools,
+Conflicts: droidian-phosh-full
 Breaks: droidian-full (<< 22+git20211206000000)
 Replaces: droidian-full (<< 22+git20211206000000)
-Description: Droidian metapackages - full phosh environment
+Description: Droidian metapackages - full Cutie environment
  This metapackage depends on a bunch of packages that make
- the phosh mobile shell more complete.
+ the Cutie Shell UX more complete.
 
 Package: droidian-devtools
 Architecture: all
@@ -166,7 +140,7 @@ Depends: ${misc:Depends},
          openssh-server,
          pciutils,
          git,
-         gnome-console,
+         cutie-terminal,
          ifupdown,
          strace,
          gdb,
@@ -189,40 +163,9 @@ Description: Droidian metapackages - devtools
 Package: droidian-extras
 Architecture: all
 Depends: ${misc:Depends},
-         webext-ublock-origin-firefox,
-         qgnomeplatform-qt5,
          fonts-crosextra-caladea,
          fonts-crosextra-carlito,
-         network-manager-openvpn-gnome,
-         network-manager-fortisslvpn-gnome,
-         network-manager-l2tp-gnome,
-         network-manager-pptp-gnome,
          network-manager-sstp,
-         network-manager-vpnc-gnome,
-         eog-plugins,
-         adwaita-qt,
-         adwaita-qt6,
 Description: Droidian metapackages - extras
  This metapackage depends on a bunch of packages that
  improve user experience
-
-Package: droidian-minimal
-Architecture: all
-Depends: droidian-phosh-minimal
-Description: Droidian metapackages - minimal phosh environment -- transitional package
- This package is a transitional package. Feel free to
- remove it.
-
-Package: droidian-phone
-Architecture: all
-Depends: droidian-phosh-phone
-Description: Droidian metapackages - addons for mobile phones -- transitional package
- This package is a transitional package. Feel free to
- remove it.
-
-Package: droidian-full
-Architecture: all
-Depends: droidian-phosh-full
-Description: Droidian metapackages - full phosh environment -- transitional package
- This package is a transitional package. Feel free to
- remove it.
