@@ -1,83 +1,15 @@
-Source: droidian-meta
+Source: cutie-meta
 Maintainer: Erik Inkinen <erik.inkinen@erikinkinen.fi>
 Section: metapackages
 Priority: optional
 Build-Depends: debhelper (>= 10)
 Standards-Version: 4.5.0.3
-Vcs-Browser: https://github.com/cutie-shell/droidian-meta
-Vcs-Git: https://github.com/cutie-shell/droidian-meta.git
+Vcs-Browser: https://github.com/cutie-shell/cutie-meta
+Vcs-Git: https://github.com/cutie-shell/cutie-meta.git
 
-Package: droidian-base
+Package: cutie-minimal
 Architecture: all
 Depends: ${misc:Depends},
-         alsa-utils,
-         apt-utils,
-         ca-certificates,
-         systemd-timesyncd,
-         console-data,
-         console-setup,
-         f2fs-tools,
-         lvm2,
-         cryptsetup,
-         droidian-encryption-service,
-         file,
-         kbd,
-         locales,
-         locales-all,
-         libcanberra-pulse,
-         libnss-myhostname,
-         libnss-systemd,
-         libpam-cap,
-         bash-completion,
-         gawk,
-         nano,
-         sudo,
-         wget,
-         unzip,
-         xz-utils,
-         bluetooth,
-         dnsmasq-base,
-         iw,
-         network-manager,
-         pulseaudio-module-bluetooth,
-         net-tools,
-         iputils-ping,
-         rfkill,
-         wireless-tools,
-         wpasupplicant,
-         callaudiod,
-         runonce,
-         systemd-resolved,
-         droidian-quirks-brightness,
-         droidian-quirks-hostname,
-         droidian-quirks-waydroid,
-         droidian-quirks-systemd,
-         droidian-quirks-journald-standard | droidian-quirks-journald-development,
-         droidian-branding,
-         droidian-apt-config,
-         droidian-apt-config-cutie-staging,
-         droidian-archive-keyring,
-         cutie-archive-keyring,
-         mobian-droidian-archive-keyring,
-         batman,
-         batman-libpower,
-         nfcd,
-         nfcd-binder-plugin,
-         libgbinder-tools,
-         cups,
-         droidian-fpd,
-         droidian-fpd-client,
-         dialog,
-         mtp-server,
-Conflicts: droidian-upgrade-trixie
-Description: Droidian metapackages - base
- This metapackage depends on a bunch of essential
- packages for the Droidian installation.
-
-Package: droidian-cutie-minimal
-Architecture: all
-Depends: ${misc:Depends},
-         droidian-base (= ${binary:Version}),
          cutie-wlc,
          cutie-panel,
          cutie-home,
@@ -96,81 +28,69 @@ Depends: ${misc:Depends},
          plymouth,
          plymouth-theme-droidian,
          lm-sensors,
-         droidian-quirks-wayland,
 Conflicts: droidian-phosh-minimal
-Breaks: droidian-minimal (<< 22+git20211206000000)
-Replaces: droidian-minimal (<< 22+git20211206000000)
-Description: Droidian metapackages - minimal Cutie environment
+Description: Metapackages - minimal Cutie environment
  This metapackage depends on a bunch of essential
- packages for the droidian installation with
+ packages for an installation with
  the Cutie Shell.
 
-Package: droidian-cutie-phone
+Package: cutie-phone-full
 Architecture: all
 Depends: ${misc:Depends},
-         droidian-cutie-minimal (= ${binary:Version}),
+         cutie-minimal (= ${binary:Version}),
          cutie-phone,
          cutie-messaging,
          mobile-broadband-provider-info,
          device-chassis-handset,
 Conflicts: droidian-phosh-phone
-Breaks: droidian-phone (<< 22+git20211206000000)
-Replaces: droidian-phone (<< 22+git20211206000000)
-Description: Droidian metapackages - addons for mobile phones
+Description: Metapackages - addons for mobile phones
  This metapackage depends on a bunch of packages that
- make phone-related stuff work.
+ make phone-related stuff work on Cutie.
 
-Package: droidian-cutie-full
+Package: cutie-full
 Architecture: all
 Depends: ${misc:Depends},
-         droidian-cutie-minimal (= ${binary:Version}),
+         cutie-minimal (= ${binary:Version}),
          cutie-browser,
          cutie-music,
+         qt6-wayland,
          qtwayland5,
-         droidian-quirks-totem-dummy,
-         droidian-quirks-lollypop-dummy,
          getcutout,
          nfcd-tools,
 Conflicts: droidian-phosh-full
-Breaks: droidian-full (<< 22+git20211206000000)
-Replaces: droidian-full (<< 22+git20211206000000)
-Description: Droidian metapackages - full Cutie environment
+Description: Metapackages - full Cutie environment
  This metapackage depends on a bunch of packages that make
  the Cutie Shell UX more complete.
 
-Package: droidian-devtools
+Package: cutie-devtools
 Architecture: all
 Depends: ${misc:Depends},
-         openssh-server,
-         pciutils,
-         git,
          cutie-terminal,
          cutie-widget-playground,
-         ifupdown,
-         strace,
-         gdb,
-         wlr-randr,
-         screen,
-         libinput-tools,
-         evtest,
-         systemd-coredump,
-         aptitude,
-         droidian-quirks-journald-development,
-         droidian-quirks-devtools,
-         psmisc,
-         psutils,
-         inxi,
-         dbus-x11,
-Description: Droidian metapackages - devtools
+Description: Mmetapackages - Cutie devtools
  This metapackage depends on a bunch of packages that
- aid development.
+ aid development in Cutie.
 
-Package: droidian-extras
+Package: droidian-cutie-minimal
+Depends: cutie-minimal, droidian-base, ${misc:Depends}
 Architecture: all
-Depends: ${misc:Depends},
-         fonts-crosextra-caladea,
-         fonts-crosextra-carlito,
-         network-manager-sstp,
-Description: Droidian metapackages - extras
- This metapackage depends on a bunch of packages that
- improve user experience
+Priority: optional
+Section: oldlibs
+Description: transitional package
+ This is a transitional package. It can safely be removed.
+
+Package: droidian-cutie-phone
+Depends: cutie-phone-full, ${misc:Depends}
+Architecture: all
+Priority: optional
+Section: oldlibs
+Description: transitional package
+ This is a transitional package. It can safely be removed.
+
+Package: droidian-cutie-full
+Depends: cutie-full, ${misc:Depends}
+Architecture: all
+Priority: optional
+Section: oldlibs
+Description: transitional package
+ This is a transitional package. It can safely be removed.
