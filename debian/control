@@ -10,6 +10,7 @@ Vcs-Git: https://github.com/cutie-shell/cutie-meta.git
 Package: cutie-minimal
 Architecture: all
 Depends: ${misc:Depends},
+         cutie-shell-config,
          cutie-wlc,
          cutie-panel,
          cutie-home,
