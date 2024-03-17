@@ -34,6 +34,7 @@ Depends: ${misc:Depends},
          wayland-protocols,
          plymouth,
          lm-sensors,
+         feedbackd,
 Conflicts: droidian-phosh-minimal
 Description: Metapackages - minimal Cutie environment
  This metapackage depends on a bunch of essential
