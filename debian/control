@@ -32,7 +32,6 @@ Depends: ${misc:Depends},
          fonts-noto-ui-core,
          wayland-protocols,
          plymouth,
-         plymouth-theme-droidian,
          lm-sensors,
 Conflicts: droidian-phosh-minimal
 Description: Metapackages - minimal Cutie environment
@@ -60,8 +59,6 @@ Depends: ${misc:Depends},
          cutie-browser,
          cutie-contacts,
          cutie-music,
-         getcutout,
-         nfcd-tools,
 Conflicts: droidian-phosh-full
 Description: Metapackages - full Cutie environment
  This metapackage depends on a bunch of packages that make
