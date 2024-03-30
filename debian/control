@@ -49,7 +49,6 @@ Depends: ${misc:Depends},
          cutie-phone,
          cutie-messaging,
          mobile-broadband-provider-info,
-         device-chassis-handset,
 Conflicts: droidian-phosh-phone
 Description: Metapackages - addons for mobile phones
  This metapackage depends on a bunch of packages that
