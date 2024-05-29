@@ -36,6 +36,7 @@ Depends: ${misc:Depends},
          plymouth,
          lm-sensors,
          feedbackd,
+         upower,
 Conflicts: droidian-phosh-minimal
 Description: Metapackages - minimal Cutie environment
  This metapackage depends on a bunch of essential
