@@ -38,6 +38,7 @@ Depends: ${misc:Depends},
          lm-sensors,
          feedbackd,
          upower,
+         brightness-udev,
 Conflicts: droidian-phosh-minimal
 Description: Metapackages - minimal Cutie environment
  This metapackage depends on a bunch of essential
